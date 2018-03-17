@@ -423,6 +423,7 @@ public class AmazonGameCircle extends EventDispatcher {
     private function _handleStatusEvents(e:StatusEvent):void
     {
         var event:AmazonGameCircleEvent;
+	var obj:Object;
 
         trace('[AmazonGameCircle] events:',e.code,e.level);
 
@@ -454,7 +455,7 @@ public class AmazonGameCircle extends EventDispatcher {
                     if(percentiles_results){
 
                         // convert the objects to percentiles_results
-                        for each(var obj:Object in percentiles_results.percentiles){
+                        for each(obj in percentiles_results.percentiles){
                             percentiles.push(new LeaderboardPercentileItem(obj));
                         }
                         // assign the achievements
@@ -494,7 +495,7 @@ public class AmazonGameCircle extends EventDispatcher {
                     if(scores_results){
 
                         // convert the objects to leaderboards
-                        for each(var obj:Object in scores_results.scores){
+                        for each(obj in scores_results.scores){
                             scores.push(new Score(obj));
                         }
                         // assign the achievements
@@ -520,7 +521,7 @@ public class AmazonGameCircle extends EventDispatcher {
                     if(leaderboards_results){
 
                         // convert the objects to leaderboards
-                        for each(var obj:Object in leaderboards_results){
+                        for each(obj in leaderboards_results){
                             leaderboards.push(new Leaderboard(obj));
                         }
                         // assign the achievements
@@ -559,7 +560,7 @@ public class AmazonGameCircle extends EventDispatcher {
                     if(achievements_results){
 
                         // convert the objects to achievements
-                        for each(var obj:Object in achievements_results){
+                        for each(obj in achievements_results){
                             achievements.push(new Achievement(obj));
                         }
                         // assign the achievements
@@ -575,8 +576,11 @@ public class AmazonGameCircle extends EventDispatcher {
                 break;
             case "LOGGING":
                 trace('[AmazonGameCircle] ' + e.level);
+                event = new AmazonGameCircleEvent(e.code, e.level);
+                break;
             case AmazonGameCircleEvent.SERVICE_READY:
                 mServiceReady=true;
+		//:fallthru
             default:
                 event = new AmazonGameCircleEvent(e.code, e.level);
                 break;
