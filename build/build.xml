@@ -13,7 +13,9 @@
         <delete dir="../android/temp"/>
         <mkdir dir="../android/temp/classes"/>
 
-        <javac srcdir="../android/src" destdir="../android/temp/classes" includeantruntime="false">
+        <javac srcdir="../android/src" destdir="../android/temp/classes" includeantruntime="false"
+                source="1.6" target="1.6"
+                bootclasspath="${rt.jar}">
             <classpath>
                 <pathelement location="${android.sdk}/android.jar"/>
                 <pathelement location="${AIR_SDK_HOME}/lib/android/FlashRuntimeExtensions.jar"/>
@@ -41,37 +43,16 @@
     <target name="swc" description="Build SWC library">
         <mkdir dir="../temp/swc/content/"/>
 
-	<!-- old
-        <fileset dir="../actionscript/src" casesensitive="yes" id="classfiles">
-            <include name="**/*.as"/>
-        </fileset>
-
-        <pathconvert property="classlist" refid="classfiles" pathsep=" " dirsep=".">
-            <regexpmapper from=".*src.(.*)\.as" to="\1"/>
-        </pathconvert>
-
-        <exec executable="${flex.sdk}/bin/compc${bin.ext}" failonerror="true">
-            <env key="AIR_SDK_HOME" value="${flex.sdk}"/>
-            <arg line='-source-path ../actionscript/src'/>
-            <arg line='-output ../temp/swc/${name}.swc'/>
-            <arg line='-target-player=19.0'/>
-            <arg line='-swf-version=30'/>
-            <arg line='-external-library-path+="${flex.sdk}/frameworks/libs/air/airglobal.swc"'/>
-            <arg line='-include-classes ${classlist}'/>
-        </exec>
-        -->
         <compc output="../temp/swc/${name}.swc" failonerror="true" maxmemory="1024m"
-        			target-player="28.0"
-	        		swf-version="39"
-				debug="false"
-				compiler.debug="false"
-				compiler.optimize="true"
-			>
-		<source-path path-element="../actionscript/src"/>
-		<include-libraries dir='${AIR_SDK_HOME}/frameworks/libs/air/' append='true'>
-			<include name="airglobal.swc" />
-		</include-libraries>
-	</compc>
+                target-player="28.0"
+                swf-version="39"
+                debug="false"
+                compiler.debug="false"
+                compiler.optimize="true">
+            <load-config filename="${AIR_SDK_HOME}/frameworks/air-config.xml" />
+            <source-path path-element="../actionscript/src"/>
+            <include-sources dir="../actionscript/src" includes="*" />
+        </compc>
 
         <unzip src="../temp/swc/${name}.swc" dest="../temp/swc/content" overwrite="true"/>
         <copy file="../temp/swc/content/library.swf" todir="../temp/android" overwrite="true"/>

@@ -669,32 +669,32 @@ public class AmazonGameCircleContext extends FREContext {
     /**
      *
      */
-    public void getFriendIds() {
-
-        if(_agsClient==null) {
-
-        } else {
-
-            PlayerClient lbClient = _agsClient.getPlayerClient();
-            AGResponseHandle<RequestFriendIdsResponse> handle = lbClient.getFriendIds();
-
-            // Optional callback to receive notification of success/failure.
-            handle.setCallback(new AGResponseCallback<RequestFriendIdsResponse>() {
-                @Override
-                public void onComplete(RequestFriendIdsResponse result) {
-                    if (result.isError()) {
-                        // Add optional error handling here.  Not strictly required
-                        // since retries and on-device request caching are automatic.
-                        dispatchStatusEventAsync("onGetFriendIdsError",result.toString());
-                    } else {
-
-                        // Continue game flow.
-//                        dispatchStatusEventAsync("onGetFriendIdsComplete", playerToJSON(result.getPlayer()).toString());
-                    }
-                }
-            });
-        }
-    }
+//    public void getFriendIds() {
+//
+//        if(_agsClient==null) {
+//
+//        } else {
+//
+//            PlayerClient lbClient = _agsClient.getPlayerClient();
+//            AGResponseHandle<RequestFriendIdsResponse> handle = lbClient.getFriendIds();
+//
+//            // Optional callback to receive notification of success/failure.
+//            handle.setCallback(new AGResponseCallback<RequestFriendIdsResponse>() {
+//                @Override
+//                public void onComplete(RequestFriendIdsResponse result) {
+//                    if (result.isError()) {
+//                        // Add optional error handling here.  Not strictly required
+//                        // since retries and on-device request caching are automatic.
+//                        dispatchStatusEventAsync("onGetFriendIdsError",result.toString());
+//                    } else {
+//
+//                        // Continue game flow.
+////                        dispatchStatusEventAsync("onGetFriendIdsComplete", playerToJSON(result.getPlayer()).toString());
+//                    }
+//                }
+//            });
+//        }
+//    }
 
     /**
      *
