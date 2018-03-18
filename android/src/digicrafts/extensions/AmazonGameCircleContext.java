@@ -24,17 +24,17 @@ import org.json.JSONObject;
 
 public class AmazonGameCircleContext extends FREContext {
 
-	private static final String TAG = AmazonGameCircleContext.class.getName();
+    private static final String TAG = AmazonGameCircleContext.class.getName();
 
     private AmazonGamesClient _agsClient;
     private List<AmazonGameCircleFunction<?>> methods;
 
-	@Override
-	public void dispose() {
+    @Override
+    public void dispose() {
         if (_agsClient != null) {
             _agsClient.release();
         }
-	}
+    }
 
     /**
      *
@@ -260,17 +260,17 @@ public class AmazonGameCircleContext extends FREContext {
         }
     }
 
-	@Override
-	public Map<String, FREFunction> getFunctions() {
-		
-		Map<String, FREFunction> functionMap = new HashMap<String, FREFunction>();
+    @Override
+    public Map<String, FREFunction> getFunctions() {
+        
+        Map<String, FREFunction> functionMap = new HashMap<String, FREFunction>();
 
         // add functions to map
         for (AmazonGameCircleFunction<?> func : methods)
             functionMap.put(func.getName(), func);
-	    
-		return functionMap;
-	}
+        
+        return functionMap;
+    }
 
 // Callback Methods
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -506,7 +506,7 @@ public class AmazonGameCircleContext extends FREContext {
      *
      * @param act
      */
-	public void initialize(Activity act) {
+    public void initialize(Activity act) {
 
 //        List<AmazonGamesFeature> features = null;
 
@@ -572,11 +572,11 @@ public class AmazonGameCircleContext extends FREContext {
                     if (result.isError()) {
                         // Add optional error handling here.  Not strictly required
                         // since retries and on-device request caching are automatic.
-                        dispatchStatusEventAsync("onShowGameCircleError",result.toString());
+                        dispatchStatusEventAsync("onSignInError",result.toString());
                     } else {
 
                         // Continue game flow.
-                        dispatchStatusEventAsync("onShowGameCircleComplete", result.toString());
+                        dispatchStatusEventAsync("onSignInComplete", result.toString());
                     }
                 }
             });

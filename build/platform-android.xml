@@ -1,4 +1,4 @@
-<platform xmlns="http://ns.adobe.com/air/extension/19.0">
+<platform xmlns="http://ns.adobe.com/air/extension/28.0">
     <packagedDependencies>
         <packagedDependency>AmazonInsights-android-sdk-2.1.26.jar</packagedDependency>
         <packagedDependency>gamecirclesdk.jar</packagedDependency>

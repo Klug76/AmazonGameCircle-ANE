@@ -3,7 +3,7 @@
 
     <!-- Config -->
     <property file="./build.config"/>
-    <taskdef resource="flexTasks.tasks" classpath="${flex.sdk}/ant/lib/flexTasks.jar"/>
+    <taskdef resource="flexTasks.tasks" classpath="${AIR_SDK_HOME}/ant/lib/flexTasks.jar"/>
 
     <!-- All -->
     <target name="all" depends="android,swc,package" description="Full build of extension"/>
@@ -16,7 +16,7 @@
         <javac srcdir="../android/src" destdir="../android/temp/classes" includeantruntime="false">
             <classpath>
                 <pathelement location="${android.sdk}/android.jar"/>
-                <pathelement location="${flex.sdk}/lib/android/FlashRuntimeExtensions.jar"/>
+                <pathelement location="${AIR_SDK_HOME}/lib/android/FlashRuntimeExtensions.jar"/>
                 <pathelement location="../android/libs/AmazonInsights-android-sdk-2.1.26.jar"/>
                 <pathelement location="../android/libs/gamecirclesdk.jar"/>
                 <pathelement location="../android/libs/login-with-amazon-sdk.jar"/>
@@ -61,10 +61,14 @@
         </exec>
         -->
         <compc output="../temp/swc/${name}.swc" failonerror="true" maxmemory="1024m"
-        		target-player="19.0" swf-version="30">
+        			target-player="28.0"
+	        		swf-version="39"
+				debug="false"
+				compiler.debug="false"
+				compiler.optimize="true"
+			>
 		<source-path path-element="../actionscript/src"/>
-		<include-sources dir="../actionscript/src" includes="*"/>
-		<include-libraries dir='${flex.sdk}/frameworks/libs/air/' append='true'>
+		<include-libraries dir='${AIR_SDK_HOME}/frameworks/libs/air/' append='true'>
 			<include name="airglobal.swc" />
 		</include-libraries>
 	</compc>
@@ -87,14 +91,13 @@
             <regexpmapper from=".*src.(.*)\.as" to="\1"/>
         </pathconvert>
 
-        <exec executable="${flex.sdk}/bin/asdoc${bin.ext}" failonerror="true">
-            <env key="AIR_SDK_HOME" value="${flex.sdk}"/>
-            <env key="FLEX_HOME" value="${flex.sdk}"/>
-            <env key="SCRIPT_HOME" value="${flex.sdk}/bin"/>
-            <env key="FALCON_HOME" value="${flex.sdk}"/>
+        <exec executable="${AIR_SDK_HOME}/bin/asdoc${bin.ext}" failonerror="true">
+            <env key="FLEX_HOME" value="${AIR_SDK_HOME}"/>
+            <env key="SCRIPT_HOME" value="${AIR_SDK_HOME}/bin"/>
+            <env key="FALCON_HOME" value="${AIR_SDK_HOME}"/>
             <arg line='-doc-sources ../actionscript/src'/>
             <arg line='-output ../doc'/>
-            <arg line='-external-library-path+="${flex.sdk}/frameworks/libs/air/airglobal.swc"'/>
+            <arg line='-external-library-path+="${AIR_SDK_HOME}/frameworks/libs/air/airglobal.swc"'/>
         </exec>
 
         <delete dir="../temp/swc/content/"/>
@@ -102,7 +105,7 @@
 
     <!-- Package -->
     <target name="package" description="Create the extension package">
-        <exec executable="${flex.sdk}/bin/adt${bin.ext}" failonerror="true" dir="../temp">
+        <exec executable="${AIR_SDK_HOME}/bin/adt${bin.ext}" failonerror="true" dir="../temp">
             <arg value="-package"/>
             <arg value="-target"/>
             <arg value="ane"/>

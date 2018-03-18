@@ -423,7 +423,7 @@ public class AmazonGameCircle extends EventDispatcher {
     private function _handleStatusEvents(e:StatusEvent):void
     {
         var event:AmazonGameCircleEvent;
-	var obj:Object;
+        var obj:Object;
 
         trace('[AmazonGameCircle] events:',e.code,e.level);
 
@@ -580,7 +580,7 @@ public class AmazonGameCircle extends EventDispatcher {
                 break;
             case AmazonGameCircleEvent.SERVICE_READY:
                 mServiceReady=true;
-		//:fallthru
+                //:fallthru
             default:
                 event = new AmazonGameCircleEvent(e.code, e.level);
                 break;

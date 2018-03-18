@@ -1,4 +1,4 @@
-<extension xmlns="http://ns.adobe.com/air/extension/19.0">
+<extension xmlns="http://ns.adobe.com/air/extension/28.0">
     <id>digicrafts.extensions.AmazonGameCircle</id>
     <versionNumber>1.2.0</versionNumber>
     <copyright>(c) 2014, Digicrafts, Inc. All rights reserved.</copyright>
