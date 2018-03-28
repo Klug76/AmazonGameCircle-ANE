@@ -288,7 +288,7 @@ public class AmazonGameCircleContext extends FREContext {
         public void onServiceReady(AmazonGamesClient amazonGamesClient) {
             _agsClient = amazonGamesClient;
             //ready to use GameCircle
-            dispatchStatusEventAsync("onServiceReady","ok");
+            dispatchStatusEventAsync("onServiceReady", "ok");
         }
     };
 
@@ -542,7 +542,7 @@ public class AmazonGameCircleContext extends FREContext {
                     if (result.isError()) {
                         // Add optional error handling here.  Not strictly required
                         // since retries and on-device request caching are automatic.
-                        dispatchStatusEventAsync("onShowGameCircleError",result.toString());
+                        dispatchStatusEventAsync("onShowGameCircleError", result.toString());
                     } else {
 
                         // Continue game flow.
@@ -572,7 +572,7 @@ public class AmazonGameCircleContext extends FREContext {
                     if (result.isError()) {
                         // Add optional error handling here.  Not strictly required
                         // since retries and on-device request caching are automatic.
-                        dispatchStatusEventAsync("onSignInError",result.toString());
+                        dispatchStatusEventAsync("onSignInError", result.toString());
                     } else {
 
                         // Continue game flow.
@@ -654,7 +654,7 @@ public class AmazonGameCircleContext extends FREContext {
                     if (result.isError()) {
                         // Add optional error handling here.  Not strictly required
                         // since retries and on-device request caching are automatic.
-                        dispatchStatusEventAsync("onGetPlayerError",result.toString());
+                        dispatchStatusEventAsync("onGetPlayerError", result.toString());
                     } else {
 
                         // Continue game flow.
@@ -685,7 +685,7 @@ public class AmazonGameCircleContext extends FREContext {
 //                    if (result.isError()) {
 //                        // Add optional error handling here.  Not strictly required
 //                        // since retries and on-device request caching are automatic.
-//                        dispatchStatusEventAsync("onGetFriendIdsError",result.toString());
+//                        dispatchStatusEventAsync("onGetFriendIdsError", result.toString());
 //                    } else {
 //
 //                        // Continue game flow.
@@ -715,7 +715,7 @@ public class AmazonGameCircleContext extends FREContext {
 //                    if (result.isError()) {
 //                        // Add optional error handling here.  Not strictly required
 //                        // since retries and on-device request caching are automatic.
-//                        dispatchStatusEventAsync("onGetFriendIdsError",result.toString());
+//                        dispatchStatusEventAsync("onGetFriendIdsError", result.toString());
 //                    } else {
 //
 //                        // Continue game flow.
@@ -750,7 +750,7 @@ public class AmazonGameCircleContext extends FREContext {
                     if (result.isError()) {
                         // Add optional error handling here.  Not strictly required
                         // since retries and on-device request caching are automatic.
-                        dispatchStatusEventAsync("onGetLeaderboardPercentilesError",result.toString());
+                        dispatchStatusEventAsync("onGetLeaderboardPercentilesError", result.toString());
                     } else {
                         // Create json to hold the score value
                         JSONObject jsonScore=new JSONObject();
@@ -792,7 +792,7 @@ public class AmazonGameCircleContext extends FREContext {
                     if (result.isError()) {
                         // Add optional error handling here.  Not strictly required
                         // since retries and on-device request caching are automatic.
-                        dispatchStatusEventAsync("onGetLeaderboardPercentilesError",result.toString());
+                        dispatchStatusEventAsync("onGetLeaderboardPercentilesError", result.toString());
                     } else {
                         // Create json to hold the score value
                         JSONObject jsonScore=new JSONObject();
@@ -834,7 +834,7 @@ public class AmazonGameCircleContext extends FREContext {
                     if (result.isError()) {
                         // Add optional error handling here.  Not strictly required
                         // since retries and on-device request caching are automatic.
-                        dispatchStatusEventAsync("onGetPlayerScoreError",result.toString());
+                        dispatchStatusEventAsync("onGetPlayerScoreError", result.toString());
                     } else {
 
                         // Create json to hold the score value
@@ -876,7 +876,7 @@ public class AmazonGameCircleContext extends FREContext {
                     if (result.isError()) {
                         // Add optional error handling here.  Not strictly required
                         // since retries and on-device request caching are automatic.
-                        dispatchStatusEventAsync("onGetPlayerScoreError",result.toString());
+                        dispatchStatusEventAsync("onGetPlayerScoreError", result.toString());
                     } else {
                         // Create json to hold the score value
                         JSONObject jsonScore=new JSONObject();
@@ -917,7 +917,7 @@ public class AmazonGameCircleContext extends FREContext {
                     if (result.isError()) {
                         // Add optional error handling here.  Not strictly required
                         // since retries and on-device request caching are automatic.
-                        dispatchStatusEventAsync("onGetScoresError",result.toString());
+                        dispatchStatusEventAsync("onGetScoresError", result.toString());
                     } else {
                         // Create json to hold the score value
                         JSONObject jsonScore=new JSONObject();
@@ -957,7 +957,7 @@ public class AmazonGameCircleContext extends FREContext {
                     if (result.isError()) {
                         // Add optional error handling here.  Not strictly required
                         // since retries and on-device request caching are automatic.
-                        dispatchStatusEventAsync("onGetLeaderboardsError",result.toString());
+                        dispatchStatusEventAsync("onGetLeaderboardsError", result.toString());
                     } else {
                         // Continue game flow.
                         dispatchStatusEventAsync("onGetLeaderboardsComplete", leaderboardToJSONArray(result.getLeaderboards()).toString());
@@ -992,7 +992,7 @@ public class AmazonGameCircleContext extends FREContext {
                     if (result.isError()) {
                         // Add optional error handling here.  Not strictly required
                         // since retries and on-device request caching are automatic.
-                        dispatchStatusEventAsync("onSubmitScoreError",result.toString());
+                        dispatchStatusEventAsync("onSubmitScoreError", result.toString());
                     } else {
                         // Create json to hold the score value
                         JSONObject jsonScore=new JSONObject();
@@ -1063,10 +1063,10 @@ public class AmazonGameCircleContext extends FREContext {
                     if (result.isError()) {
                         // Add optional error handling here.  Not strictly required
                         // since retries and on-device request caching are automatic.
-                        dispatchStatusEventAsync("onUpdateAchievementError",result.toString());
+                        dispatchStatusEventAsync("onUpdateAchievementError", result.toString());
                     } else {
                         // Continue game flow.
-                        dispatchStatusEventAsync("onUpdateAchievementComplete",result.toString());
+                        dispatchStatusEventAsync("onUpdateAchievementComplete", result.toString());
                     }
                 }
             });
@@ -1098,7 +1098,7 @@ public class AmazonGameCircleContext extends FREContext {
                         dispatchStatusEventAsync("onGetAchievementError", result.toString());
                     } else {
                         // Continue game flow.
-                        dispatchStatusEventAsync("onGetAchievementComplete",achievementToJSON(result.getAchievement()).toString());
+                        dispatchStatusEventAsync("onGetAchievementComplete", achievementToJSON(result.getAchievement()).toString());
                     }
                 }
             });
@@ -1126,7 +1126,7 @@ public class AmazonGameCircleContext extends FREContext {
                     if (result.isError()) {
                         // Add optional error handling here.  Not strictly required
                         // since retries and on-device request caching are automatic.
-                        dispatchStatusEventAsync("onGetAchievementsError",result.toString());
+                        dispatchStatusEventAsync("onGetAchievementsError", result.toString());
                     } else {
                         // Continue game flow.
                         dispatchStatusEventAsync("onGetAchievementsComplete", achievementsToJSONArray(result.getAchievementsList()).toString());
@@ -1161,7 +1161,7 @@ public class AmazonGameCircleContext extends FREContext {
                         dispatchStatusEventAsync("onGetAchievementError", result.toString());
                     } else {
                         // Continue game flow.
-                        dispatchStatusEventAsync("onGetAchievementComplete",achievementToJSON(result.getAchievement()).toString());
+                        dispatchStatusEventAsync("onGetAchievementComplete", achievementToJSON(result.getAchievement()).toString());
                     }
                 }
             });
@@ -1189,7 +1189,7 @@ public class AmazonGameCircleContext extends FREContext {
                     if (result.isError()) {
                         // Add optional error handling here.  Not strictly required
                         // since retries and on-device request caching are automatic.
-                        dispatchStatusEventAsync("onGetAchievementsError",result.toString());
+                        dispatchStatusEventAsync("onGetAchievementsError", result.toString());
                     } else {
                         // Continue game flow.
                         dispatchStatusEventAsync("onGetAchievementsComplete", achievementsToJSONArray(result.getAchievementsList()).toString());

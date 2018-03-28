@@ -1,0 +1,3 @@
+add AmazonGameCircle.VERSION
+add missing const "onSignInComplete" etc
+add AGSignedInListener

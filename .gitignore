@@ -14,3 +14,5 @@ vendor/
 test/
 out/
 build/setup_java.cmd
+android/temp/
+temp/

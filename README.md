@@ -38,7 +38,7 @@ In Flash Builder 4.6:
 
   1. Goto Project Properties
   2. Select Native Extensions under Actionscript Build Path
-  3. Choose Add ANE... and navigate to the Mopub.ane file 
+  3. Choose Add ANE... and navigate to the AmazonGameCircle.ane file 
   4. Select Actionscript Build Packaging > Google Android or Apple IOS
   5. Select the Native Extensions tab, and click the 'Package' check box next to the extension
 
@@ -47,18 +47,18 @@ In Flash Professional CS5.5 or Lower:
   1. Select File>PublishSettings>Flash>ActionScript 3.0 Settings 
   2. Select External Library Path
   3. Click Browseto SWC File
-  4. Select the Mopub.swc
+  4. Select the AmazonGameCircle.swc
 
 In Flash Builder 4.5:
 
   1. Goto Project Properties
   2. Select Action Script Build Path
   3. Select Add Swc
-  4. Navigate to Mopub.swc and choose External Library type
+  4. Navigate to AmazonGameCircle.swc and choose External Library type
 
 In FlashDevelop:
 
-  1. Copy the Mopub.swc file to your project folder.
+  1. Copy the AmazonGameCircle.swc file to your project folder.
   2. In the explorer panel, right click the .swc and select Add to Library.
   3. Right-click the swc file in the explorer, choose Options, and select External Library
 
@@ -152,7 +152,7 @@ Add the following settings in ```<application>``` tag. Remember to replace your 
        <action android:name="android.intent.action.VIEW" />
        <category android:name="android.intent.category.DEFAULT" />
        <category android:name="android.intent.category.BROWSABLE" />
-       <data android:host="YOUR.APP.PACKAGE.ID" android:scheme="amzn" />
+       <data android:host="air.YOUR.APP.PACKAGE.ID" android:scheme="amzn" />
     </intent-filter>
   </activity>
   <activity android:name="com.amazon.ags.html5.overlay.GameCircleAlertUserInterface"

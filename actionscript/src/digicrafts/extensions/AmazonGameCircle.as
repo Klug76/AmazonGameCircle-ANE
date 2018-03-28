@@ -30,7 +30,7 @@ public class AmazonGameCircle extends EventDispatcher {
 
     // static
     public static var instance:AmazonGameCircle;
-    public static var defaultFeatures:Array=['achievements','leaderboards'];
+    //public static var defaultFeatures:Array=['achievements','leaderboards'];
 
     // private
     private static var allowInstance:Boolean=false;
@@ -61,9 +61,9 @@ public class AmazonGameCircle extends EventDispatcher {
         if(instance==null){
             allowInstance=true;
             instance=new AmazonGameCircle();
-            if ( !extensionContext && Capabilities.os.indexOf("x86_64")==-1)
+            if (!extensionContext)
             {
-                trace("[AmazonGameCircle] Get AmazonGameCircle Extension Instance...");
+                //trace("[AmazonGameCircle] Get AmazonGameCircle Extension Instance...");
                 extensionContext = ExtensionContext.createExtensionContext("digicrafts.extensions.AmazonGameCircle","AmazonGameCircle");
                 extensionContext.addEventListener(StatusEvent.STATUS,instance._handleStatusEvents);
             }
@@ -98,7 +98,7 @@ public class AmazonGameCircle extends EventDispatcher {
      * Initializes the AmazonGamesClient
      *
      */
-    public static function initialize(features:Array=null):void
+    public static function initialize(/*features:Array=null*/):void
     {
         if(!mServiceReady)
             getInstance()._initialize();
@@ -425,7 +425,7 @@ public class AmazonGameCircle extends EventDispatcher {
         var event:AmazonGameCircleEvent;
         var obj:Object;
 
-        trace('[AmazonGameCircle] events:',e.code,e.level);
+        //trace('[AmazonGameCircle] events:',e.code,e.level);
 
         switch (e.code) {
             case AmazonGameCircleEvent.GET_PLAYER_COMPLETE:
@@ -575,7 +575,7 @@ public class AmazonGameCircle extends EventDispatcher {
                 event.data=JSON.parse(e.level);
                 break;
             case "LOGGING":
-                trace('[AmazonGameCircle] ' + e.level);
+                trace('[AmazonGameCircle] events:',e.code,e.level);
                 event = new AmazonGameCircleEvent(e.code, e.level);
                 break;
             case AmazonGameCircleEvent.SERVICE_READY:
