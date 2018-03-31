@@ -29,7 +29,9 @@ import flash.system.Capabilities;
 public class AmazonGameCircle extends EventDispatcher {
 
     // static
-    public static var instance:AmazonGameCircle;
+    public static const VERSION: String = "1.2.0";
+
+	public static var instance:AmazonGameCircle;
     //public static var defaultFeatures:Array=['achievements','leaderboards'];
 
     // private
@@ -64,8 +66,9 @@ public class AmazonGameCircle extends EventDispatcher {
             if (!extensionContext)
             {
                 //trace("[AmazonGameCircle] Get AmazonGameCircle Extension Instance...");
-                extensionContext = ExtensionContext.createExtensionContext("digicrafts.extensions.AmazonGameCircle","AmazonGameCircle");
-                extensionContext.addEventListener(StatusEvent.STATUS,instance._handleStatusEvents);
+                extensionContext = ExtensionContext.createExtensionContext("digicrafts.extensions.AmazonGameCircle", "AmazonGameCircle");
+				if (extensionContext != null)
+					extensionContext.addEventListener(StatusEvent.STATUS,instance._handleStatusEvents);
             }
             allowInstance=false;
         }

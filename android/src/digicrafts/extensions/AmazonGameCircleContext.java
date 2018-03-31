@@ -15,6 +15,7 @@ import com.amazon.ags.api.leaderboards.*;
 import com.amazon.ags.api.overlay.PopUpLocation;
 import com.amazon.ags.api.player.Player;
 import com.amazon.ags.api.player.PlayerClient;
+import com.amazon.ags.api.player.AGSignedInListener;
 import com.amazon.ags.api.player.RequestFriendIdsResponse;
 import com.amazon.ags.api.player.RequestPlayerResponse;
 import com.amazon.ags.constants.LeaderboardFilter;
@@ -282,11 +283,21 @@ public class AmazonGameCircleContext extends FREContext {
         @Override
         public void onServiceNotReady(AmazonGamesStatus status) {
             //unable to use service
-            dispatchStatusEventAsync("onServiceNotReady", "event");
+            dispatchStatusEventAsync("onServiceNotReady", "code=" + status.ordinal());
         }
         @Override
         public void onServiceReady(AmazonGamesClient amazonGamesClient) {
             _agsClient = amazonGamesClient;
+            _agsClient.getPlayerClient().setSignedInListener(new AGSignedInListener() {
+                    @Override
+                    public void onSignedInStateChange(boolean isSignedIn) {
+                        if(isSignedIn) {
+                            dispatchStatusEventAsync("onSignedIn", "ok");
+                        } else {
+                            dispatchStatusEventAsync("onSignedOut", "ok");
+                        }
+                    }
+                });
             //ready to use GameCircle
             dispatchStatusEventAsync("onServiceReady", "ok");
         }
@@ -576,7 +587,7 @@ public class AmazonGameCircleContext extends FREContext {
                     } else {
 
                         // Continue game flow.
-                        dispatchStatusEventAsync("onSignInComplete", result.toString());
+                        dispatchStatusEventAsync("onSignInDisplayed", result.toString());
                     }
                 }
             });

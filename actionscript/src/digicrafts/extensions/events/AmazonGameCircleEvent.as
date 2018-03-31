@@ -18,8 +18,10 @@ public class AmazonGameCircleEvent extends Event {
     // General
     public static const SERVICE_READY:String = 'onServiceReady';
     public static const SERVICE_NOT_READY:String = 'onServiceNotReady';
-    public static const SIGN_IN_COMPLETE:String = 'onSignInComplete';
+    public static const SIGN_IN_DISPLAYED:String = 'onSignInDisplayed';
     public static const SIGN_IN_ERROR:String = 'onSignInError';
+    public static const SIGN_IN:String = 'onSignedIn';
+    public static const SIGN_OUT:String = 'onSignedOut';
     public static const SHOW_GAMECIRCLE_COMPLETE:String = 'onShowGameCircleComplete';
     public static const SHOW_GAMECIRCLE_ERROR:String = 'onShowGameCircleError';
     // Player Events
