@@ -1,3 +1,7 @@
-add AmazonGameCircle.VERSION
-add missing const "onSignInComplete" etc
-add AGSignedInListener
+TODO:
+.BUG: initial login popup catch touch events even if !visible
+============================================================
+done:
++.add AmazonGameCircle.VERSION
++.add missing const "onSignInComplete" etc
++.add AGSignedInListener
